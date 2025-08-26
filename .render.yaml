@@ -1,0 +1,22 @@
+services:
+  
+  - type: web
+    name: lead-management-backend
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false  
+
+  
+  - type: web
+    name: lead-management-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false 
